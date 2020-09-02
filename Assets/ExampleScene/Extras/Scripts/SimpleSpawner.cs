@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -43,7 +42,7 @@ public class SimpleSpawner : MonoBehaviour
             transform.position = spawnMarker.transform.position;
         }
         // Put "player" transform into enemy's target slot in SimpleEnemy.cs upon instantiation.
-        var spawnedEnemy = Instantiate(enemy, transform.position, quaternion.identity);
+        var spawnedEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
         spawnedEnemy.GetComponent<SimpleEnemy>().target = player;
         canSpawnAgain = false;
         StartCoroutine(MarkerTime());      
